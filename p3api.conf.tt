@@ -1,0 +1,22 @@
+{
+	"production": [% p3api_production %],
+	"solr": {
+		"url": "[% p3api_solr_url %]"
+	},
+	"workspaceAPI": "[% p3api_workspace_api_url %]",
+	"distributeURL": "[% p3api_distribute_url %]",
+	"enableIndexer": [% p3api_enable_indexer %],
+	"jbrowseAPIRoot": "[% p3api_jbrowse_api_root %]",
+	"queueDirectory": "[% p3api_queue_directory %]",
+	"publicGenomeDir": "[% p3api_public_genome_dir %]",
+[% IF p3api_newrelic_license_key %]
+       "newrelic_license_key": "[% p3api_newrelic_license_key %]",
+[% END %]
+[% IF p3api_num_workers %]
+       "numWorkers": [% p3api_num_workers %],
+[% END %]
+	"cache": {
+		"enabled": [% p3api_cache_enabled %],
+		"directory": "[% p3api_cache_directory %]"
+	}
+}

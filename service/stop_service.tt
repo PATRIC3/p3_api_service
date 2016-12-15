@@ -1,0 +1,22 @@
+#!/bin/sh
+export KB_TOP=[% kb_top %]
+export KB_RUNTIME=[% kb_runtime %]
+export PATH=$KB_TOP/bin:$KB_RUNTIME/bin:$KB_TOP/services/[% kb_service_name %]/bin:$KB_TOP/services/cdmi_api/bin:$PATH
+export PERL5LIB=$KB_TOP/lib
+export KB_SERVICE_NAME="[% kb_service_name %]"
+export KB_SERVICE_DIR="$KB_TOP/services/[% kb_service_name %]"
+export KB_DEPLOYMENT_CONFIG="$KB_TOP/deployment.cfg"
+
+if [ -f $KB_SERVICE_DIR/setenv.sh ] ; then
+  . $KB_SERVICE_DIR/setenv.sh
+fi
+
+[% IF kb_tempdir -%]
+export TMPDIR=[% kb_tempdir %]
+export TEMPDIR=[% kb_tempdir %]
+[% END %]
+
+export FOREVER_ROOT=$KB_SERVICE_DIR
+
+cd [% kb_app_dir %]
+./node_modules/forever/bin/forever stop [% kb_app_script %]
