@@ -12,6 +12,7 @@ SERVICE_APP_DIR      = $(TARGET)/services/$(SERVICE_DIR)/app
 APP_REPO     = https://github.com/PATRIC3/p3_api.git
 APP_DIR      = p3_api
 APP_SCRIPT   = ./bin/p3api-server
+APP_VERSION  = master
 
 PATH := $(DEPLOY_RUNTIME)/build-tools/bin:$(PATH)
 
@@ -66,8 +67,11 @@ default: build-app build-config
 build-app:
 	if [ ! -f $(APP_DIR)/package.json ] ; then \
 		git clone --recursive $(APP_REPO) $(APP_DIR); \
+		if [ "$(APP_VERSION)" ne "" ] ; then \
+			(cd $(APP_DIR); git checkout $(APP_VERSION)  ) ; \
+		fi \
 	fi
-	cd $(APP_DIR); npm install; npm install forever
+	cd $(APP_DIR); npm install
 
 dist: 
 
