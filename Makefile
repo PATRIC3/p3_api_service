@@ -67,7 +67,7 @@ default: build-app build-config
 build-app:
 	if [ ! -f $(APP_DIR)/package.json ] ; then \
 		git clone --recursive $(APP_REPO) $(APP_DIR); \
-		if [ "$(APP_VERSION)" ne "" ] ; then \
+		if [ "$(APP_VERSION)" != "" ] ; then \
 			(cd $(APP_DIR); git checkout $(APP_VERSION)  ) ; \
 		fi \
 	fi
