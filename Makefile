@@ -71,7 +71,7 @@ build-app:
 			(cd $(APP_DIR); git checkout $(APP_VERSION)  ) ; \
 		fi \
 	fi
-	cd $(APP_DIR); npm install
+	cd $(APP_DIR); npm install; npm install forever
 
 dist: 
 
