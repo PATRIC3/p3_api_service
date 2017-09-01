@@ -23,8 +23,8 @@ export FOREVER_ROOT=$KB_SERVICE_DIR
 
 cd [% kb_app_dir %]
 ./node_modules/forever/bin/forever start -a \
-    -l $KB_SERVICE_DIR/forever.log \
-    -o $KB_SERVICE_DIR/stdout.log \
-    -e $KB_SERVICE_DIR/stderr.log \
+    -l $KB_SERVICE_DIR/forever.worker.log \
+    -o $KB_SERVICE_DIR/stdout.worker.log \
+    -e $KB_SERVICE_DIR/stderr.worker.log \
     -p $KB_SERVICE_DIR \
     -v -d [% kb_worker_script %]
