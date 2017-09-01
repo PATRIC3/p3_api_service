@@ -12,6 +12,7 @@ SERVICE_APP_DIR      = $(TARGET)/services/$(SERVICE_DIR)/app
 APP_REPO     = https://github.com/PATRIC3/p3_api.git
 APP_DIR      = p3_api
 APP_SCRIPT   = ./bin/p3api-server
+WORKER_SCRIPT   = ./bin/p3-index-worker
 APP_VERSION  = master
 
 PATH := $(DEPLOY_RUNTIME)/build-tools/bin:$(PATH)
@@ -39,6 +40,7 @@ TPAGE_ARGS = --define kb_runas_user=$(SERVICE_USER) \
 	--define kb_psgi=$(SERVICE_PSGI) \
 	--define kb_app_dir=$(SERVICE_APP_DIR) \
 	--define kb_app_script=$(APP_SCRIPT) \
+	--define kb_worker_script=$(WORKER_SCRIPT) \
 	--define p3api_production=$(PRODUCTION) \
 	--define p3api_service_port=$(SERVICE_PORT) \
 	--define p3api_solr_url=$(SOLR_URL) \
