@@ -111,10 +111,17 @@ build-config:
 
 deploy-run-scripts:
 	mkdir -p $(TARGET)/services/$(SERVICE_DIR)
+	
 	$(TPAGE) $(TPAGE_ARGS) service/start_service.tt > $(TARGET)/services/$(SERVICE_DIR)/start_service
 	chmod +x $(TARGET)/services/$(SERVICE_DIR)/start_service
 	$(TPAGE) $(TPAGE_ARGS) service/stop_service.tt > $(TARGET)/services/$(SERVICE_DIR)/stop_service
 	chmod +x $(TARGET)/services/$(SERVICE_DIR)/stop_service
+	
+	$(TPAGE) $(TPAGE_ARGS) service/start_worker.tt > $(TARGET)/services/$(SERVICE_DIR)/start_worker
+	chmod +x $(TARGET)/services/$(SERVICE_DIR)/start_worker
+	$(TPAGE) $(TPAGE_ARGS) service/stop_worker.tt > $(TARGET)/services/$(SERVICE_DIR)/stop_worker
+	chmod +x $(TARGET)/services/$(SERVICE_DIR)/stop_worker
+
 	if [ -f service/upstart.tt ] ; then \
 		$(TPAGE) $(TPAGE_ARGS) service/upstart.tt > service/$(SERVICE_NAME).conf; \
 	fi
