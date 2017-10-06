@@ -22,6 +22,11 @@ CONFIG_TEMPLATE = $(CONFIG).tt
 
 PRODUCTION = true
 SOLR_URL = http://chestnut.mcs.anl.gov:8983/solr
+REDIS_HOST = beech.mcs.anl.gov
+REDIS_PORT = 6379
+REDIS_DB   = 2
+REDIS_PREFIX =
+REDIS_PASS =
 WORKSPACE_API_URL = https://p3.theseed.org/services/Workspace
 DISTRIBUTE_URL = http://localhost:3001/
 ENABLE_INDEXER = false
@@ -44,6 +49,11 @@ TPAGE_ARGS = --define kb_runas_user=$(SERVICE_USER) \
 	--define p3api_production=$(PRODUCTION) \
 	--define p3api_service_port=$(SERVICE_PORT) \
 	--define p3api_solr_url=$(SOLR_URL) \
+	--define redis_host=$(REDIS_HOST) \
+	--define redis_port=$(REDIS_PORT) \
+	--define redis_db=$(REDIS_DB) \
+	--define redis_prefix=$(REDIS_PREFIX) \
+	--define redis_pass=$(REDIS_PASS) \
 	--define p3api_workspace_api_url=$(WORKSPACE_API_URL) \
 	--define p3api_distribute_url=$(DISTRIBUTE_URL) \
 	--define p3api_enable_indexer=$(ENABLE_INDEXER) \
